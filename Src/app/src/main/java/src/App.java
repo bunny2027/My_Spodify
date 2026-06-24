@@ -5,22 +5,36 @@
 package src;
 //imports
 import javafx.application.Application;
-import javafx.stage.*;
-import javafx.scene.*;
-import javafx.graphics.*;
-
+import javafx.stage.Stage;
+import javafx.scene.Scene;
+import javafx.scene.layout.BorderPane;
 
 public class App extends Application {
-    @Override
-    public void start(Stage primaryStage) {
-        System.out.println(getGreeting());
-    }
 
-    public String getGreeting() {
-        return "Hello World!";
-    }
-
+   
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+        launch(args);
+    }
+
+    public void start(Stage window){
+        //Layouts
+        BorderPane root = new BorderPane();
+        Parent roo2t2 = FXMLLoader.load(getClass().getResource("/FXML/Main.fxml"));
+        //Scene
+        Scene scene = new Scene(root, 1280, 720); 
+        //Window Settings
+        window.setTitle("BeatBunny");
+        window.setScene(scene);
+        window.show();
+        window.setFullScreen(true);
+
+        //design
+        scene.getStylesheets().add(getClass().getResource("/Styles/sakura.css").toExternalForm());
+
+        
+
+        
+        
+
     }
 }
